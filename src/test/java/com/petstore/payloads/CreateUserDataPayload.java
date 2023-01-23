@@ -9,7 +9,6 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class CreateUserDataPayload {
-    @Step("Create User Random Payload")
     public PayloadStructureCreateUser createUserRandom(){
 
         Faker faker = new Faker();
@@ -36,7 +35,6 @@ public class CreateUserDataPayload {
                 .setUserStatus(userStatus);
     }
 
-    @Step("Create User Input Payload")
     public PayloadStructureCreateUser createUserInput(String userName, String firstName, String lastName, String email, String password,
                                                       String phoneNumber, Integer userStatus){
 
