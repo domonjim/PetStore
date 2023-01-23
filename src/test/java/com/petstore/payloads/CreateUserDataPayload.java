@@ -1,6 +1,6 @@
 package com.petstore.payloads;
 
-import com.petstore.userendpoints.payloadsCreateUser.PayloadCreateUser;
+import com.petstore.userendpoints.payloadStructureCreateUser.PayloadStructureCreateUser;
 import io.qameta.allure.Step;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -8,9 +8,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class CreateUserPayload {
+public class CreateUserDataPayload {
     @Step("Create User Random Payload")
-    public PayloadCreateUser createUserRandom(){
+    public PayloadStructureCreateUser createUserRandom(){
 
         Faker faker = new Faker();
         Random random = new SecureRandom();
@@ -25,7 +25,7 @@ public class CreateUserPayload {
         String phoneNumber = faker.phoneNumber().phoneNumberInternational();
 
         Integer userStatus = Integer.valueOf(random.nextInt(1, 11));
-        return new PayloadCreateUser()
+        return new PayloadStructureCreateUser()
                 .setId(id)
                 .setUsername(userName)
                 .setFirstName(firstName)
@@ -37,12 +37,12 @@ public class CreateUserPayload {
     }
 
     @Step("Create User Input Payload")
-    public PayloadCreateUser createUserInput(String userName, String firstName, String lastName, String email, String password,
-                                             String phoneNumber, Integer userStatus){
+    public PayloadStructureCreateUser createUserInput(String userName, String firstName, String lastName, String email, String password,
+                                                      String phoneNumber, Integer userStatus){
 
         Integer id = Integer.valueOf(RandomStringUtils.randomNumeric(5));
 
-        return new PayloadCreateUser()
+        return new PayloadStructureCreateUser()
                 .setId(id)
                 .setUsername(userName)
                 .setFirstName(firstName)

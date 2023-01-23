@@ -1,4 +1,4 @@
-package com.petstore.userendpoints.payloadsCreateUser;
+package com.petstore.userendpoints.payloadStructureCreateUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-public class PayloadCreateUser {
+public class PayloadStructureCreateUser {
     private Integer id;
     private String username;
     private String firstName;

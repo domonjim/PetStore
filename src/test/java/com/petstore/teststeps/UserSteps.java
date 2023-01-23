@@ -1,7 +1,7 @@
 package com.petstore.teststeps;
 
 import com.petstore.userendpoints.UserEndpoint;
-import com.petstore.userendpoints.payloadsCreateUser.PayloadCreateUser;
+import com.petstore.userendpoints.payloadStructureCreateUser.PayloadStructureCreateUser;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
@@ -9,8 +9,8 @@ import static org.hamcrest.Matchers.hasKey;
 
 public class UserSteps {
     @Step("Create User")
-    public String createUser(PayloadCreateUser payloadCreateUser, Integer statusCode){
-        Response response = UserEndpoint.createUser(payloadCreateUser);
+    public String createUser(PayloadStructureCreateUser payloadStructureCreateUser, Integer statusCode){
+        Response response = UserEndpoint.createUser(payloadStructureCreateUser);
 
         switch (statusCode){
             case 200:

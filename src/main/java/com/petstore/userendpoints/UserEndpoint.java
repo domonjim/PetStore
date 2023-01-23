@@ -1,6 +1,6 @@
 package com.petstore.userendpoints;
 
-import com.petstore.userendpoints.payloadsCreateUser.PayloadCreateUser;
+import com.petstore.userendpoints.payloadStructureCreateUser.PayloadStructureCreateUser;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -15,7 +15,7 @@ public class UserEndpoint {
 
     private static final String USERNAME = "username";
 
-    public static Response createUser(PayloadCreateUser payloadCreateUser) {
+    public static Response createUser(PayloadStructureCreateUser payloadStructureCreateUser) {
 
         return
                 given()
@@ -23,7 +23,7 @@ public class UserEndpoint {
                         //.baseUri(URL)
                         .header("Content-Type", "application/json")
                         .when()
-                        .body(payloadCreateUser)
+                        .body(payloadStructureCreateUser)
                         .post(URL)
                         .then().log().ifValidationFails().extract().response();
     }

@@ -1,8 +1,8 @@
 package com.petstore;
 
-import com.petstore.payloads.CreateUserPayload;
+import com.petstore.payloads.CreateUserDataPayload;
 import com.petstore.teststeps.UserSteps;
-import com.petstore.userendpoints.payloadsCreateUser.PayloadCreateUser;
+import com.petstore.userendpoints.payloadStructureCreateUser.PayloadStructureCreateUser;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class UserTest {
-    private final CreateUserPayload CREATE_USER_PAYLOADS = new CreateUserPayload();
+class UserTest {
+    private final CreateUserDataPayload CREATE_USER_PAYLOADS = new CreateUserDataPayload();
     private final UserSteps USER_STEPS = new UserSteps();
 
     private static String userName;
@@ -24,9 +24,9 @@ public class UserTest {
 
     @Test
     void createUserRandom(){
-        PayloadCreateUser payloadCreateUser = CREATE_USER_PAYLOADS.createUserRandom();
+        PayloadStructureCreateUser payloadStructureCreateUser = CREATE_USER_PAYLOADS.createUserRandom();
 
-        String id = USER_STEPS.createUser(payloadCreateUser, 200);
+        String id = USER_STEPS.createUser(payloadStructureCreateUser, 200);
 
         System.out.println("ID: " + id);
     }
@@ -47,9 +47,9 @@ public class UserTest {
         Integer userStatus = Integer.valueOf(random.nextInt(1, 6));
 
 
-        PayloadCreateUser payloadCreateUser = CREATE_USER_PAYLOADS.createUserInput(userName, firstName, lastName, email, password, phoneNumber, userStatus);
+        PayloadStructureCreateUser payloadStructureCreateUser = CREATE_USER_PAYLOADS.createUserInput(userName, firstName, lastName, email, password, phoneNumber, userStatus);
 
-        String id = USER_STEPS.createUser(payloadCreateUser, 200);
+        String id = USER_STEPS.createUser(payloadStructureCreateUser, 200);
     }
 
     @Test
