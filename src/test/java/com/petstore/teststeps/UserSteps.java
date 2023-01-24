@@ -18,6 +18,17 @@ public class UserSteps {
                         .statusCode(statusCode)
                         .body("$", hasKey("message"))
                         .log().all();
+                break;
+            case 400:
+            case 500:
+                response.then()
+                        .statusCode(statusCode)
+                        .log().all();
+                break;
+
+            default:
+                System.out.println("Unknown Response:" + statusCode);
+
         }
         return response.jsonPath().get("message").toString();
     }
