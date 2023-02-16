@@ -5,6 +5,7 @@ import com.petstore.userendpoints.payloadStructureCreateUser.PayloadStructureCre
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasKey;
 
 public class UserSteps {
@@ -51,6 +52,11 @@ public class UserSteps {
                         .body("$", hasKey("phone"))
                         .body("$", hasKey("userStatus"))
                         .log().all();
+                break;
+            case 404:
+                response.then().assertThat().statusCode(statusCode)
+                        .body(containsString("User not found"));
+                break;
         }
         return response;
     }
